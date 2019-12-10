@@ -6,7 +6,7 @@ A template project for small to medium-small javascript games.
 
 | **Included** | **Planned** | **Imagined** |
 | - | - | - |
-| <ul><li>HTML page</li><li>Configuration</li></ul>  | <ul><li>Scene Management</li><li>Object Management</li><li>Builtin Primitives</li></ul> | <ul><li>2d Physics</li></ul> |
+| <ul><li>HTML page</li><li>Configuration</li></ul>  | <ul><li>Canvas Generation</li><li>Event Handling</li><li>Scene Management</li><li>Object Management</li><li>Builtin Primitives</li></ul> | <ul><li>2d Physics</li></ul> |
 
 ## Getting Started
 
