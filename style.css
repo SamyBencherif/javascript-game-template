@@ -1,0 +1,14 @@
+.boxedBtn
+{
+	display: inline-block;
+	
+	background: white;
+
+	width: 20px;
+	height: 20px;
+
+	border: 1px solid black;
+
+	margin: 2px;
+	text-align: center;
+}

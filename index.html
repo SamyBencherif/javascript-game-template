@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="src/theme.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	
+	<h1 id="gameTitle"></h1>
+	<iframe src="game.html"></iframe>
+	<p id="howToPlay"></p>
+
+</body>
+
+<script src="src/gameconfig.js"></script>
+
+<script>	
+	document.querySelector('title').innerHTML = config.title
+	document.querySelector('#gameTitle').innerHTML = config.title
+	
+	document.querySelector('iframe').width = config.width
+	document.querySelector('iframe').height = config.height	
+
+	document.querySelector('#howToPlay').innerHTML = config.instructions	
+</script>
+
+
+</html>
