@@ -12,3 +12,7 @@ A template project for small to medium-small javascript games.
 
 ### Imagined
 * 2d physics
+
+## Gallery
+
+![](https://raw.githubusercontent.com/wiki/SamyBencherif/javascript-game-template/screenshots/concept-html-2019-12-10.png)
