@@ -7,12 +7,14 @@
 </head>
 <body>
 	<h1 id="gameTitle"></h1>
-	<div id="gameView" onclick="engine.initializeGame()">
+	<div id="gameView">
 		<noscript><p>This game requires Javascript.</p></noscript>
-		<div id="startHintBox">
-			<div>
-				<div id="startHint">
-					Click within this region to play the game.
+		<div id="clickToStart" onclick="engine.initializeGame()">
+			<div id="startHintBox">
+				<div>
+					<div id="startHint">
+						Click within this region to play the game.
+					</div>
 				</div>
 			</div>
 		</div>

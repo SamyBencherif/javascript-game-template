@@ -1,15 +1,10 @@
 
-#gameTitle {
-}
-
-#howToPlay {
-}
-
 #gameView
 {
 	background: white;
 }
 
 body {
+	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 	background: skyblue;
 }
