@@ -7,7 +7,7 @@
 </head>
 <body>
 	<h1 id="gameTitle"></h1>
-	<div id="gameView" onclick="engine">
+	<div id="gameView" onclick="engine.initializeGame()">
 		<noscript><p>This game requires Javascript.</p></noscript>
 		<div id="startHintBox">
 			<div>
@@ -19,11 +19,12 @@
 	</div>
 	<p id="howToPlay"></p>
 
-	<button onclick="engine.popOut()">Pop Out</button>
+	<button onclick="engine.presentation.popOut()">Pop Out (reloads game)</button>
 
 </body>
 
 <script src="engine.js"></script>
+<script src="src/game.js"></script>
 <script src="src/gameconfig.js"></script>
 
 <script>
@@ -36,7 +37,7 @@
 	document.querySelector('#howToPlay').innerHTML = config.instructions
 
 	if ((new URL(window.location)).searchParams.get("windowed") == "true")
-        engine.enterWindowedMode()
+        engine.presentation.enterWindowedMode()
 </script>
 
 
