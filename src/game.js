@@ -1,26 +1,26 @@
 
 
 const scenes = {
-	menu: Scene([
+	menu: engine.Scene([
 	
-		Backdrop.ScrollingPattern({
+		engine.Backdrop.ScrollingPattern({
 			foreground: "blue",
 			background: "white",
 			shape: "circle"
 		}), 
 		
-		Button({
-			label: "Play"
+		engine.Button({
+			label: "Play",
 			target: null
 		}), 
 		
-		Button({
-			label: "Info"
+		engine.Button({
+			label: "Info",
 			target: infoScene
 		})
 		
 	]),
-	info: Scene([])
+	info: engine.Scene([])
 }
 
 const init = scenes.menu
