@@ -7,31 +7,36 @@
 </head>
 <body>
 	<h1 id="gameTitle"></h1>
-	<div id="gameRegion" onclick="engine.">
+	<div id="gameView" onclick="engine">
 		<noscript><p>This game requires Javascript.</p></noscript>
 		<div id="startHintBox">
 			<div>
 				<div id="startHint">
-				Click within this region to play the game.
+					Click within this region to play the game.
 				</div>
 			</div>
 		</div>
-		<canvas></canvas>
 	</div>
 	<p id="howToPlay"></p>
+
+	<button onclick="engine.popOut()">Pop Out</button>
+
 </body>
 
 <script src="engine.js"></script>
 <script src="src/gameconfig.js"></script>
 
-<script>	
+<script>
 	document.querySelector('title').innerHTML = config.title
 	document.querySelector('#gameTitle').innerHTML = config.title
 	
-	document.querySelector('#gameRegion').style.width = config.width + "px"
-	document.querySelector('#gameRegion').style.height = config.height + "px"
+	document.querySelector('#gameView').style.width = config.width + "px"
+	document.querySelector('#gameView').style.height = config.height + "px"
 
-	document.querySelector('#howToPlay').innerHTML = config.instructions	
+	document.querySelector('#howToPlay').innerHTML = config.instructions
+
+	if ((new URL(window.location)).searchParams.get("windowed") == "true")
+        engine.enterWindowedMode()
 </script>
 
 

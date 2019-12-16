@@ -13,6 +13,10 @@
 	text-align: center;
 }
 
+.hidden {
+	display: none;
+}
+
 #startHintBox {
 	position: relative;
 
