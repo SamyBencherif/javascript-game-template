@@ -14,6 +14,6 @@ jobs:
       with:
         node-version: '10.x'
     - name: Install Dependencies
-      run: npm install eslint
+      run: npm i -g eslint
     - name: Run ESLint
-      uses: stefanoeb/eslint-action@1.0.0
+      run: eslint .eslintrc
