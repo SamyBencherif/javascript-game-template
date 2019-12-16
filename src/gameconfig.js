@@ -1,10 +1,14 @@
 
-const leftArrow = `<span class="boxedBtn">&#x21e6;</span>`
-const upArrow = `<span class="boxedBtn">&#x21e7;</span>`
-const rightArrow = `<span class="boxedBtn">&#x21e8;</span>`
-const downArrow = `<span class="boxedBtn">&#x21e9;</span>`
 
-const keyBtn = (c) => `<span class="boxedBtn">${c}</span>`
+const la = engine.html.leftArrowIco
+const ra = engine.html.rightArrowIco
+const ua = engine.html.upArrowIco
+const da = engine.html.downArrowIco
+
+const wb = engine.html.getKeyBtnIco("W")
+const sb = engine.html.getKeyBtnIco("S")
+const ab = engine.html.getKeyBtnIco("A")
+const db = engine.html.getKeyBtnIco("D")
 
 const config = {
 	title: "Untitled Game",
@@ -14,6 +18,6 @@ const config = {
 	instructions: `Write code for a game. Use the Keyboard.
 	<br>
 	Keyboard buttons include 
-	${keyBtn('W')}${keyBtn('S')}${keyBtn('A')}${keyBtn('D')}
-	<br> and even ${leftArrow}${rightArrow}.`
+	${wb+sb+ab+db}
+	<br> and even ${la+ra}.`
 }
