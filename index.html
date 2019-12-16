@@ -6,21 +6,30 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-	
 	<h1 id="gameTitle"></h1>
-	<iframe src="game.html"></iframe>
+	<div id="gameRegion" onclick="engine.">
+		<noscript><p>This game requires Javascript.</p></noscript>
+		<div id="startHintBox">
+			<div>
+				<div id="startHint">
+				Click within this region to play the game.
+				</div>
+			</div>
+		</div>
+		<canvas></canvas>
+	</div>
 	<p id="howToPlay"></p>
-
 </body>
 
+<script src="engine.js"></script>
 <script src="src/gameconfig.js"></script>
 
 <script>	
 	document.querySelector('title').innerHTML = config.title
 	document.querySelector('#gameTitle').innerHTML = config.title
 	
-	document.querySelector('iframe').width = config.width
-	document.querySelector('iframe').height = config.height	
+	document.querySelector('#gameRegion').style.width = config.width + "px"
+	document.querySelector('#gameRegion').style.height = config.height + "px"
 
 	document.querySelector('#howToPlay').innerHTML = config.instructions	
 </script>

@@ -5,6 +5,11 @@
 #howToPlay {
 }
 
+#gameRegion
+{
+	background: white;
+}
+
 body {
 	background: skyblue;
 }
