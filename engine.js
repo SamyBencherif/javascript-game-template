@@ -33,21 +33,32 @@ const engine = {
         }
     },
 
-    rendering:
-    {
-        canvas: null,
-        ctx: null
-    },
-
     state: 
     {
         activeScene: null
     },
 
-    stage: {
-        Scene: function()
+    rendering:
+    {
+        canvas: null,
+        ctx: null,
+        enabled: false,
+        update: function()
         {
-            
+            if (engine.activeScene)
+            {
+                this.activeScene.gameObjects.forEach((g) => {g.update()})
+            }
+
+            if (engine.rendering.enabled)
+                requestAnimationFrame(engine.rendering.update)
+        }
+    },
+
+    stage: {
+        Scene: function(gameObjects)
+        {
+            this.gameObjects = Set(gameObjects)
         }
     },
 
@@ -67,12 +78,30 @@ const engine = {
         }
 
         engine.rendering.canvas = document.createElement("canvas")
+
         engine.rendering.canvas.style.width = "100%"
         engine.rendering.canvas.style.height = "100%"
+
+        engine.rendering.canvas.width = document.querySelector('#gameView').offsetWidth
+        engine.rendering.canvas.height = document.querySelector('#gameView').offsetHeight
+
+        engine.rendering.canvas.style.imageRendering = "pixelated"
+
         engine.rendering.ctx = engine.rendering.canvas.getContext('2d')
 
-        document.querySelector('#startHintBox').classList.add("hidden")
+        document.querySelector('#clickToStart').classList.add("hidden")
+
         document.querySelector('#gameView').appendChild(engine.rendering.canvas)
+
+        engine.rendering.enabled = true
+        requestAnimationFrame(engine.rendering.update)
+
+        // add various events
+        //document.querySelector('#gameView').addEventListener
+
+        // onresize
+        // engine.rendering.canvas.width = document.querySelector('#gameView').offsetWidth
+        // engine.rendering.canvas.height = document.querySelector('#gameView').offsetHeight
     },
 
     saveGame: function()
