@@ -9,5 +9,5 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - name: ESLint Action
-      uses: hallee/eslint-action@1.0.1
+    - name: Run ESLint
+      uses: stefanoeb/eslint-action@1.0.0
