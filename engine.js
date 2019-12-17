@@ -21,7 +21,8 @@ const engine = {
             var W = window.open(window.location.href + '?windowed=true','_blank','width=800,height=800')
         },
     
-        enterWindowedMode: function() {
+        enterWindowedMode: function()
+        {
             var gameView = document.querySelector("#gameView")
     
             document.body.innerHTML = ""
@@ -38,6 +39,41 @@ const engine = {
         activeScene: null
     },
 
+    builtins: 
+    {
+        backdrops:
+        {
+            ScrollingPattern:
+            function(options)
+            {
+                this.foreground = options.foreground
+                this.background = options.background
+                this.shape = options.shape
+
+                this.update = function()
+                {
+                    const ctx = engine.rendering.ctx
+
+                    ctx.fillStyle = this.background
+                    ctx.fillRect(0,0,100,100)
+
+                    ctx.fillStyle = this.foreground
+                    switch (this.shape.toLowerCase()) {
+                        case "square":
+                            ctx.fillRect(10,10,10,10)
+                        break
+                        case "circle":
+                            ctx.fillRect(10,10,10,10)
+                        break
+                        case "triangle":
+                            ctx.fillRect(10,10,10,10)
+                        break
+                    }
+                }
+            }
+        }
+    },
+
     rendering:
     {
         canvas: null,
@@ -45,9 +81,9 @@ const engine = {
         enabled: false,
         update: function()
         {
-            if (engine.activeScene)
+            if (engine.state.activeScene)
             {
-                this.activeScene.gameObjects.forEach((g) => {g.update()})
+                engine.state.activeScene.gameObjects.forEach((g) => {g.update()})
             }
 
             if (engine.rendering.enabled)
@@ -58,7 +94,7 @@ const engine = {
     stage: {
         Scene: function(gameObjects)
         {
-            this.gameObjects = Set(gameObjects)
+            this.gameObjects = new Set(gameObjects)
         }
     },
 
@@ -76,6 +112,8 @@ const engine = {
             console.error("No game entry point defined. Please specify an entry in game.js")
             // return
         }
+
+        engine.state.activeScene = game.entry
 
         engine.rendering.canvas = document.createElement("canvas")
 
