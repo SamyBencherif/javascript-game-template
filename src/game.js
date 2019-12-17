@@ -1,14 +1,14 @@
 
 
 const scenes = {
-	menu: undefined
-	// new engine.stage.Scene([
+	menu: new engine.stage.Scene([
 	
-		// engine.Backdrop.ScrollingPattern({
-		// 	foreground: "blue",
-		// 	background: "white",
-		// 	shape: "circle"
-		// }), 
+		new engine.builtins.backdrops.ScrollingPattern({
+			foreground: "blue",
+			background: "white",
+			shape: "circle",
+			shapeSize: 10
+		}), 
 		
 		// engine.Button({
 		// 	label: "Play",
@@ -20,7 +20,7 @@ const scenes = {
 		// 	target: infoScene
 		// })
 		
-	// ]),
+	]),
 	// info: engine.Scene([])
 }
 
