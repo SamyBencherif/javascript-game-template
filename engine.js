@@ -46,29 +46,98 @@ const engine = {
             ScrollingPattern:
             function(options)
             {
-                this.foreground = options.foreground
-                this.background = options.background
-                this.shape = options.shape
+                Object.assign(this, options)
+
+                this.shape = this.shape.toLowerCase()
+
+                if ( this.shape != "square" )
+                {
+                    if ( this.shape != "circle" && this.shape != "triangle" )
+                    {
+                        console.error("Shape " + this.shape + " is not implemented yet.")
+                    }
+                    else
+                    {
+                        console.error("Shape " + this.shape + " is not implemented. Please contact the developer.")
+                    }
+                }
+
+                this.t = 0
+
+                this.update = function()
+                {
+                    const ctx = engine.rendering.ctx
+                    const w = engine.rendering.canvas.width
+                    const h = engine.rendering.canvas.height
+
+                    ctx.fillStyle = this.background
+
+                    ctx.fillRect(0, 0, w, h)
+
+                    ctx.fillStyle = this.foreground
+
+                    const size = Math.min(w, h) / this.linearQuantity
+                    const ssize = size*this.coverage
+                    
+                    const trackX = -size
+                    const trackY = -size
+                    const trackWidth = w + 2*size
+                    const trackHeight = h + 2*size
+
+                    for (var x=0; x<trackWidth/size; x++)
+                    {
+                        for (var y=0; y<trackHeight/size; y++)
+                        {
+                            ctx.save()
+
+                            const m = 500
+                            ctx.translate( trackX + (this.t + size*x) % trackWidth, trackY + (this.t + size*y) % trackHeight )
+                            ctx.rotate(this.t / 30)
+
+                            switch (this.shape) {
+                                case "square":
+                                    ctx.fillRect(-ssize/2, -ssize/2, ssize, ssize)
+                                break
+                                case "circle":
+                                break
+                                case "triangle":
+                                break
+                            }
+
+                            ctx.restore()
+                        }
+                    }
+
+
+                    this.t ++;
+                }
+            }
+        },
+
+        ui: {
+            TitleText: 
+            function(options)
+            {
+                Object.assign(this, options)
 
                 this.update = function()
                 {
                     const ctx = engine.rendering.ctx
 
+                    ctx.font = this.font
                     ctx.fillStyle = this.background
-                    ctx.fillRect(0,0,100,100)
 
+                    ctx.textAlign = this.anchor.textAlign
+                    ctx.textBaseline = this.anchor.textBaseline
+
+                    ctx.save()
+                    ctx.translate(this.position.getX(), this.position.getY())
+                    ctx.translate(this.shadowOffset, this.shadowOffset)
+                    ctx.fillText(this.text, 0, 0)
                     ctx.fillStyle = this.foreground
-                    switch (this.shape.toLowerCase()) {
-                        case "square":
-                            ctx.fillRect(10,10,10,10)
-                        break
-                        case "circle":
-                            ctx.fillRect(10,10,10,10)
-                        break
-                        case "triangle":
-                            ctx.fillRect(10,10,10,10)
-                        break
-                    }
+                    ctx.translate(-this.shadowOffset, -this.shadowOffset)
+                    ctx.fillText(this.text, 0, 0)
+                    ctx.restore()
                 }
             }
         }
@@ -83,7 +152,7 @@ const engine = {
         {
             if (engine.state.activeScene)
             {
-                engine.state.activeScene.gameObjects.forEach((g) => {g.update()})
+                engine.state.activeScene.gameObjects.forEach((g) => {if (g.update) g.update()})
             }
 
             if (engine.rendering.enabled)
@@ -95,6 +164,35 @@ const engine = {
         Scene: function(gameObjects)
         {
             this.gameObjects = new Set(gameObjects)
+        }
+    },
+
+    util: {
+        Point: function(X_fn_or_val, Y_fn_or_val)
+        {
+            this.getX = function()
+            {
+                if (typeof X_fn_or_val == "function")
+                {
+                    return X_fn_or_val(engine.rendering.canvas.width)
+                }
+                else 
+                {
+                    return X_fn_or_val
+                }
+            }
+
+            this.getY = function()
+            {
+                if (typeof Y_fn_or_val == "function")
+                {
+                    return Y_fn_or_val(engine.rendering.canvas.height)
+                }
+                else 
+                {
+                    return Y_fn_or_val
+                }
+            }
         }
     },
 
