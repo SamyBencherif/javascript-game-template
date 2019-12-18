@@ -20,10 +20,16 @@ const scenes = {
             position: new engine.util.Point((w)=>w/2, 100)
         }),
 
-        // engine.Button({
-        //     label: "Play",
-        //     target: null
-        // }), 
+        new engine.builtins.ui.Button({
+            text: "Play",
+            foreground: "blue",
+            background: "black",
+            font: "40px 'Trebuchet MS'",
+            shadowOffset: 2,
+            anchor: {textAlign: "center", textBaseline: "middle"},
+            position: new engine.util.Point((w)=>w/2, 180),
+            target: null
+        }), 
         
         // engine.Button({
         //     label: "Info",
