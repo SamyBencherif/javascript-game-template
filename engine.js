@@ -139,6 +139,47 @@ const engine = {
                     ctx.fillText(this.text, 0, 0)
                     ctx.restore()
                 }
+            },
+
+            Button: 
+            function(options)
+            {
+                Object.assign(this, options)
+
+                this.update = function()
+                {
+                    const ctx = engine.rendering.ctx
+
+                    ctx.save()
+                    ctx.translate(this.position.getX(), this.position.getY())
+
+                    // Draw Button Rectangle
+                    ctx.fillStyle = "rgba(0,0,0,.1)"
+                    ctx.fillRect(
+                        -ctx.measureText(this.text).actualBoundingBoxLeft,
+                        -ctx.measureText(this.text).actualBoundingBoxAscent,
+                        ctx.measureText(this.text).actualBoundingBoxRight + 
+                        ctx.measureText(this.text).actualBoundingBoxLeft,
+                        ctx.measureText(this.text).actualBoundingBoxDescent +
+                        ctx.measureText(this.text).actualBoundingBoxAscent
+                    )
+
+                    ctx.font = this.font
+                    ctx.fillStyle = this.background
+                    ctx.textAlign = this.anchor.textAlign
+                    ctx.textBaseline = this.anchor.textBaseline
+
+                    // Draw Text Shadow
+                    ctx.translate(this.shadowOffset, this.shadowOffset)
+                    ctx.fillText(this.text, 0, 0)
+
+                    // Draw Text
+                    ctx.fillStyle = this.foreground
+                    ctx.translate(-this.shadowOffset, -this.shadowOffset)
+                    ctx.fillText(this.text, 0, 0)
+
+                    ctx.restore()
+                }
             }
         }
     },
