@@ -39,4 +39,4 @@ const config = {
 
 Preview:
 
-![](https://raw.githubusercontent.com/wiki/SamyBencherif/javascript-game-template/screenshots/concept-html-2019-12-10.png)
+![](https://raw.githubusercontent.com/wiki/SamyBencherif/javascript-game-template/screenshots/concept-html-2019-12-20.png)
