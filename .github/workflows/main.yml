@@ -17,3 +17,7 @@ jobs:
       run: npm i -g eslint
     - name: Run ESLint
       run: eslint
+    - name: Verify VM
+      run: pwd
+    - name: Verify VM2
+      run: ls
