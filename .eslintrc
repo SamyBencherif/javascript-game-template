@@ -9,6 +9,7 @@
         "indent": ["error", 4],
         "function-paren-newline": ["error", "consistent"],
         "object-curly-newline": ["error", { "consistent": true }],
-        "curly": "error"
+        "curly": "error",
+        "brace-style": ["error", "allman", {"allowSingleLine": true}]
     }
 }
