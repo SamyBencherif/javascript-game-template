@@ -11,11 +11,11 @@ const ab = engine.constants.html.getKeyBtnIco("A")
 const db = engine.constants.html.getKeyBtnIco("D")
 
 const config = {
-	title: "Untitled Game",
-	width: 512,
-	height: 512,
-	
-	instructions: `Write code for a game. Use the Keyboard.
+    title: "Untitled Game",
+    width: 512,
+    height: 512,
+
+    instructions: `Write code for a game. Use the Keyboard.
 	<br>
 	Keyboard buttons include 
 	${wb+sb+ab+db}

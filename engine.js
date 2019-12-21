@@ -99,11 +99,11 @@ const engine = {
                             {
                                 case "square":
                                     ctx.fillRect(-ssize/2, -ssize/2, ssize, ssize)
-                                break
+                                    break
                                 case "circle":
-                                break
+                                    break
                                 case "triangle":
-                                break
+                                    break
                             }
 
                             ctx.restore()
@@ -111,7 +111,7 @@ const engine = {
                     }
 
 
-                    this.t ++;
+                    this.t ++
                 }
             }
         },
@@ -194,11 +194,21 @@ const engine = {
         {
             if (engine.state.activeScene)
             {
-                engine.state.activeScene.gameObjects.forEach((g) => {if (g.update) g.update()})
+                engine.state.activeScene.gameObjects.forEach(
+                    (g) => 
+                    {
+                        if (g.update) 
+                        {
+                            g.update()
+                        }
+                    }
+                )
             }
 
             if (engine.rendering.enabled)
+            {
                 requestAnimationFrame(engine.rendering.update)
+            }
         }
     },
 
