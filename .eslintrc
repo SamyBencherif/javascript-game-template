@@ -8,10 +8,29 @@
         "es6": true
     },
     "rules": {
-        "indent": ["error", 4],
+
+        // indention consists of 4 spaces
+        "indent": ["error", 4, {"SwitchCase": 1}],
+
+        // We enforce consistent use of linebreaks when defining functions
         "function-paren-newline": ["error", "consistent"],
+
+        // We enforce consistent use of linebreaks when defining objects
         "object-curly-newline": ["error", { "consistent": true }],
+
+        // We seek to avoid issues arising from omitted curly-brackets
         "curly": "error",
-        "brace-style": ["error", "allman", {"allowSingleLine": true}]
+
+        // We like Allman braces
+        "brace-style": ["error", "allman", {"allowSingleLine": true}],
+
+        // There will be unused vars because this is a template project
+        "no-unused-vars": "off",
+
+        // There are occasional cross-file global variables
+        "no-undef": "off",
+
+        // We ask that you kindly leave the semicolon out
+        "semi": ["error", "never"]
     }
 }
