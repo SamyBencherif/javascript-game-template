@@ -13,16 +13,19 @@
 	text-align: center;
 }
 
-.hidden {
+.hidden 
+{
 	display: none;
 }
 
-#clickToStart {
+#clickToStart 
+{
 	width: 100%;
 	height: 100%;
 }
 
-#startHintBox {
+#startHintBox 
+{
 	position: relative;
 
 	left: 50%;
@@ -36,8 +39,8 @@
 	height: 80px;
 }
 
-#startHintBox > div {
-
+#startHintBox > div 
+{
 	position: relative;
 
 	left: 50%;
@@ -53,8 +56,8 @@
 	height: 70px;
 }
 
-#startHint {
-
+#startHint 
+{
 	text-align: center;
 	position: relative;
 
