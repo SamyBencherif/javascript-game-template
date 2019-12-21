@@ -1,9 +1,9 @@
 
 const engine = {
-
     constants:
     {
-        html: {
+        html: 
+        {
             leftArrowIco: `<span class="boxedBtn">&#x21e6;</span>`,
             upArrowIco: `<span class="boxedBtn">&#x21e7;</span>`,
             rightArrowIco: `<span class="boxedBtn">&#x21e8;</span>`,
@@ -14,7 +14,8 @@ const engine = {
 
     presentation:
     {
-        popOut: function () {
+        popOut: function () 
+        {
             engine.saveGame()
             document.querySelector("#startHintBox").classList.remove('hidden')
             document.querySelector("#startHint").innerText = "Game is popped out."
@@ -94,7 +95,8 @@ const engine = {
                             ctx.translate( trackX + (this.t + size*x) % trackWidth, trackY + (this.t + size*y) % trackHeight )
                             ctx.rotate(this.t / 30)
 
-                            switch (this.shape) {
+                            switch (this.shape) 
+                            {
                                 case "square":
                                     ctx.fillRect(-ssize/2, -ssize/2, ssize, ssize)
                                 break
@@ -114,9 +116,9 @@ const engine = {
             }
         },
 
-        ui: {
-            TitleText: 
-            function(options)
+        ui: 
+        {
+            TitleText: function(options)
             {
                 Object.assign(this, options)
 
@@ -141,8 +143,7 @@ const engine = {
                 }
             },
 
-            Button: 
-            function(options)
+            Button: function(options)
             {
                 Object.assign(this, options)
 
@@ -201,14 +202,16 @@ const engine = {
         }
     },
 
-    stage: {
+    stage: 
+    {
         Scene: function(gameObjects)
         {
             this.gameObjects = new Set(gameObjects)
         }
     },
 
-    util: {
+    util: 
+    {
         Point: function(X_fn_or_val, Y_fn_or_val)
         {
             this.getX = function()
