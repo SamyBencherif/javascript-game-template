@@ -6,7 +6,27 @@ A template project for small to medium-small javascript games.
 
 | **Included** | **Planned** | **Imagined** |
 | - | - | - |
-| <ul><li>HTML page</li><li>Configuration</li><li>Canvas Generation</li><li>Scene Management</li><li>Object Management</li><li>Some Builtin Primitives</li></ul>  | <ul><li>Event Handling</li><li>Additional Builtin Primitives</li></ul> | <ul><li>2d Physics</li><li>3d Rendering</li></ul> |
+| <ul><li>HTML page</li><li>Configuration</li><li>Canvas Generation</li><li>Scene Management</li><li>Object Management</li><li>Some Builtin Primitives</li></ul>  | <ul><li>Event Handling</li><li>Additional Builtin Primitives</li></ul> | <ul><li><s>2d Physics</s></li><li><s>3d Rendering</s></li></ul> |
+
+## Manifest Revision 2020.03.21
+
+There are many different great existing game engines for Html5. This component shall be designated to establish common features for games in any engine. Development of a personal engine (Scene Management and stuff like that) should be separated.
+
+Features
+
+- Description with controls icons
+- Click to start region
+- Full-page mode (maybe)
+- Full-screen mode
+
+Removals
+
+- Remove Pop-Out feature as it is not particularly interesting and it refreshes the page by default
+
+Considerations
+
+- State management tools (save file in browser cache)
+- (optional) Game menu
 
 ## Getting Started
 
